@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohit Loharkar — AI Engineer & Software Engineer</title>
+    <meta name="description" content="Rohit Loharkar — M.Tech. Data Science candidate & AI/ML Engineer. Building LLM-powered applications, RAG workflows, and production ML pipelines. AIML Engineer at Vanderlande.">
+    <meta name="theme-color" content="#030014">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ═══ Loading Screen ═══ -->
+    <div class="loader" id="loader">
+        <div class="loader-ring"></div>
+        <div class="loader-text">Initializing</div>
+    </div>
+
+    <!-- ═══ Custom Cursor ═══ -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- ═══ Scroll Progress ═══ -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- ═══ Ambient Floating Particles ═══ -->
+    <div class="ambient-particles">
+        <div class="ambient-particle"></div>
+        <div class="ambient-particle"></div>
+        <div class="ambient-particle"></div>
+        <div class="ambient-particle"></div>
+        <div class="ambient-particle"></div>
+        <div class="ambient-particle"></div>
+        <div class="ambient-particle"></div>
+        <div class="ambient-particle"></div>
+    </div>
+
+    <!-- ═══ Particle Canvas ═══ -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- ═══ Navigation HUD ═══ -->
+    <nav class="nav-hud" id="nav-hud">
+        <div class="nav-top-row">
+            <a href="#hero" class="nav-logo">RL</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+            <li><a href="#experience" class="nav-link" data-section="experience">Journey</a></li>
+            <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+            <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+            <li><a href="#publications" class="nav-link" data-section="publications">Publication</a></li>
+            <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+        </ul>
+        <a href="mailto:rohitloharkar007@gmail.com" class="nav-cta">Let's Talk</a>
+    </nav>
+
+    <!-- ═══════════════════════════════════════
+         HERO SECTION
+         ═══════════════════════════════════════ -->
+    <section class="hero section" id="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <div class="hero-eyebrow reveal stagger-1">
+                        <span class="status-dot"></span>
+                        Available for opportunities
+                    </div>
+
+                    <h1 class="hero-name reveal stagger-2">
+                        <span class="line-1">Rohit</span>
+                        <span class="line-2">Loharkar</span>
+                    </h1>
+
+                    <div class="hero-roles reveal stagger-3">
+                        <span>$ </span>
+                        <span class="role-text" id="role-text"></span>
+                        <span class="cursor-blink"></span>
+                    </div>
+
+                    <p class="hero-description reveal stagger-4">
+                        Data Science M.Tech candidate and AI/ML Engineer with hands-on experience building LLM-powered applications, RAG workflows, and production ML pipelines — currently driving AI innovation at <strong>Vanderlande</strong>.
+                    </p>
+
+                    <div class="hero-actions reveal stagger-5">
+                        <a href="Resume%20Rohit%20Loharkar.pdf" class="btn-primary" download>
+                            <span class="btn-shimmer"></span>
+                            <span class="btn-text">Download Resume</span>
+                            <span class="btn-icon">📄</span>
+                        </a>
+                        <a href="mailto:rohitloharkar007@gmail.com" class="btn-secondary">
+                            Get in Touch
+                        </a>
+                        <a href="https://github.com/rohittt21" class="btn-icon-only" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/rohitloharkar" class="btn-icon-only" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                    </div>
+
+                    <div class="hero-stats reveal stagger-6">
+                        <div class="stat-item">
+                            <div class="stat-value" data-count="2">0+</div>
+                            <div class="stat-label">Work Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" data-count="15">0+</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal-scale stagger-4">
+                    <div class="solar-system">
+                        <!-- Core -->
+                        <div class="solar-core">
+                            <div class="core-text">
+                                <span class="core-icon">🧠</span>
+                                <span>AI/ML</span>
+                            </div>
+                        </div>
+
+                        <!-- Ring 1 -->
+                        <div class="solar-ring ring-1">
+                            <div class="planet-container">
+                                <div class="planet-badge">🤖 LangGraph</div>
+                            </div>
+                        </div>
+
+                        <!-- Ring 2 -->
+                        <div class="solar-ring ring-2">
+                            <div class="planet-container">
+                                <div class="planet-badge">🔗 RAG</div>
+                            </div>
+                        </div>
+
+                        <!-- Ring 3 -->
+                        <div class="solar-ring ring-3">
+                            <div class="planet-container">
+                                <div class="planet-badge">🐍 Python</div>
+                            </div>
+                            <div class="planet-container opposite">
+                                <div class="planet-badge">⚙️ MLOps</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Hint -->
+        <div class="scroll-hint">
+            <span class="scroll-hint-text">Scroll</span>
+            <div class="scroll-hint-line"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         ABOUT SECTION
+         ═══════════════════════════════════════ -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-label reveal">
+                <span>About Me</span>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-avatar reveal-left stagger-2">
+                    <div class="avatar-corner tl"></div>
+                    <div class="avatar-corner tr"></div>
+                    <div class="avatar-corner bl"></div>
+                    <div class="avatar-corner br"></div>
+                    <div class="avatar-frame">
+                        <div class="avatar-geometric">
+                            <img src="images/My LOGO.png" alt="Rohit Loharkar Logo" style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 2; display: block;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <h3 class="reveal stagger-2">Turning Data Into Intelligence</h3>
+                    <p class="reveal stagger-3">
+                        I'm an <strong>AI Engineer & Software Engineer</strong> with hands-on experience building LLM-powered applications, RAG workflows, machine learning pipelines, and cloud/infrastructure automation. Currently pursuing my M.Tech. in Data Sciences at <strong>COEP Technological University</strong> with a CGPA of 8.60.
+                    </p>
+                    <p class="reveal stagger-4">
+                        At <strong>Vanderlande</strong>, I built an AI-based Root Cause Analysis system using LangGraph, ChromaDB, and Azure to reduce manual investigation effort by 50%. Strong in <strong>Python, GenAI, ML/DL, SQL, Docker, and Linux</strong>, with practical exposure to full-stack AI applications and production log analytics.
+                    </p>
+
+                    <div class="about-highlights reveal stagger-5">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🎓</div>
+                            <div class="highlight-label">Education</div>
+                            <div class="highlight-value">M.Tech. Data Sciences</div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🏢</div>
+                            <div class="highlight-label">Current Role</div>
+                            <div class="highlight-value">AIML Engineer @ Vanderlande</div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">📍</div>
+                            <div class="highlight-label">Location</div>
+                            <div class="highlight-value">Pune, India</div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">🔬</div>
+                            <div class="highlight-label">Focus Areas</div>
+                            <div class="highlight-value">Agentic AI, RAG, LLMs</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         EXPERIENCE TIMELINE
+         ═══════════════════════════════════════ -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-label reveal">
+                <span>Journey</span>
+            </div>
+            <h2 class="section-title reveal stagger-1">
+                Professional & <span class="gradient-text">Academic Path</span>
+            </h2>
+            <p class="section-subtitle reveal stagger-2">
+                A timeline of experience, education, and continuous growth in AI and technology.
+            </p>
+
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
+                <!-- Entry 1: Vanderlande -->
+                <div class="timeline-entry reveal stagger-1">
+                    <div class="timeline-node">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-card">
+                        <span class="timeline-type work">Experience</span>
+                        <h3>AIML Engineer (Internship)</h3>
+                        <div class="timeline-org">Vanderlande Logistics · Pune, MH</div>
+                        <div class="timeline-period">Jun 2025 — Jun 2026</div>
+                        <p class="timeline-desc">Built an AI-based RCA system to analyze debug logs, identify probable root causes, and reduce developers' manual investigation effort by 50%. Developed the log intelligence workflow using Python, LangGraph, ChromaDB, Redis, and Azure Blob Storage. Contributed to an AI-based test case generation engine and built an MCP-based test automation framework using Playwright and OPC UA MCP servers.</p>
+                    </div>
+                </div>
+
+                <!-- Entry 2: ESDS -->
+                <div class="timeline-entry reveal stagger-2">
+                    <div class="timeline-node">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-card">
+                        <span class="timeline-type work">Experience</span>
+                        <h3>IMS Automation Trainee</h3>
+                        <div class="timeline-org">ESDS Software Solutions · Nashik, MH</div>
+                        <div class="timeline-period">Feb 2024 — Jul 2024</div>
+                        <p class="timeline-desc">Assessed Linux server vulnerabilities, prioritized remediation tasks, and supported system hardening including service validation, configuration checks, and access control improvements. Automated vulnerability checks and operational workflows using Python and Docker, reducing manual effort by 40%.</p>
+                    </div>
+                </div>
+
+                <!-- Entry 3: M.Tech -->
+                <div class="timeline-entry reveal stagger-3">
+                    <div class="timeline-node">
+                        <div class="timeline-dot education"></div>
+                    </div>
+                    <div class="timeline-card">
+                        <span class="timeline-type education">Education</span>
+                        <h3>M.Tech. in Data Science</h3>
+                        <div class="timeline-org">COEP Technological University · Pune, MH</div>
+                        <div class="timeline-period">Jul 2024 — Jul 2026 · CGPA: 8.60/10</div>
+                        <p class="timeline-desc">Specializing in Machine Learning, Deep Learning, Generative Adversarial Networks, and MLOps methodologies.</p>
+                    </div>
+                </div>
+
+                <!-- Entry 4: B.E -->
+                <div class="timeline-entry reveal stagger-4">
+                    <div class="timeline-node">
+                        <div class="timeline-dot education"></div>
+                    </div>
+                    <div class="timeline-card">
+                        <span class="timeline-type education">Education</span>
+                        <h3>B.E. in Computer Engineering</h3>
+                        <div class="timeline-org">Sandip Institute of Technology & Research Centre · Nashik, MH</div>
+                        <div class="timeline-period">Jul 2019 — Jun 2023 · CGPA: 8.16/10</div>
+                        <p class="timeline-desc">Honours in Artificial Intelligence and Machine Learning (AIML).</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SKILLS SECTION
+         ═══════════════════════════════════════ -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-label reveal">
+                <span>Expertise</span>
+            </div>
+            <h2 class="section-title reveal stagger-1">
+                Technical <span class="gradient-text">Arsenal</span>
+            </h2>
+            <p class="section-subtitle reveal stagger-2">
+                Technologies and frameworks I use to build intelligent, scalable systems.
+            </p>
+
+            <div class="skills-grid">
+                <!-- Agentic AI -->
+                <div class="skill-card reveal stagger-1" data-tilt>
+                    <div class="tilt-light"></div>
+                    <div class="skill-card-icon">🤖</div>
+                    <h3>Agentic AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">🤖 LLMs</span>
+                        <span class="skill-tag">📚 RAG</span>
+                        <span class="skill-tag">🦜 LangChain</span>
+                        <span class="skill-tag">🕸️ LangGraph</span>
+                        <span class="skill-tag">👥 CrewAI</span>
+                        <span class="skill-tag">✍️ Prompt Eng.</span>
+                        <span class="skill-tag">🗄️ ChromaDB</span>
+                    </div>
+                </div>
+
+                <!-- ML / Deep Learning -->
+                <div class="skill-card reveal stagger-2" data-tilt>
+                    <div class="tilt-light"></div>
+                    <div class="skill-card-icon">🧠</div>
+                    <h3>ML / DL</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">⚙️ ML</span>
+                        <span class="skill-tag">🧬 DL</span>
+                        <span class="skill-tag">📈 LSTM</span>
+                        <span class="skill-tag">👁️ CNNs</span>
+                        <span class="skill-tag">📊 MLflow</span>
+                    </div>
+                </div>
+
+                <!-- Programming -->
+                <div class="skill-card reveal stagger-3" data-tilt>
+                    <div class="tilt-light"></div>
+                    <div class="skill-card-icon">⚡</div>
+                    <h3>Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">🐍 Python</span>
+                        <span class="skill-tag">🗃️ SQL</span>
+                        <span class="skill-tag">⚡ C++</span>
+                        <span class="skill-tag">📘 TypeScript</span>
+                    </div>
+                </div>
+
+                <!-- Cloud / DevOps -->
+                <div class="skill-card reveal stagger-4" data-tilt>
+                    <div class="tilt-light"></div>
+                    <div class="skill-card-icon">☁️</div>
+                    <h3>DevOps & Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">🐧 Linux</span>
+                        <span class="skill-tag">🐳 Docker</span>
+                        <span class="skill-tag">☸️ K8s</span>
+                        <span class="skill-tag">🛠️ Jenkins</span>
+                        <span class="skill-tag">☁️ GCP</span>
+                        <span class="skill-tag">☁️ Azure AI</span>
+                    </div>
+                </div>
+
+                <!-- Databases / API -->
+                <div class="skill-card reveal stagger-5" data-tilt>
+                    <div class="tilt-light"></div>
+                    <div class="skill-card-icon">📊</div>
+                    <h3>Databases & API</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">🍃 MongoDB</span>
+                        <span class="skill-tag">🦆 DuckDB</span>
+                        <span class="skill-tag">📊 Power BI</span>
+                        <span class="skill-tag">⚛️ React</span>
+                        <span class="skill-tag">🚀 FastAPI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         PROJECTS SECTION
+         ═══════════════════════════════════════ -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-label reveal">
+                <span>Work</span>
+            </div>
+            <h2 class="section-title reveal stagger-1">
+                Featured <span class="gradient-text">Projects</span>
+            </h2>
+            <p class="section-subtitle reveal stagger-2">
+                Selected projects showcasing my approach to solving real problems with AI and data.
+            </p>
+
+            <div class="projects-grid">
+                <!-- Project 1: EVision -->
+                <article class="project-card reveal stagger-1" data-tilt>
+                    <div class="holo-shimmer"></div>
+                    <div class="project-preview">
+                        <img src="images/EVision%20image.png" alt="EVision Analytics" class="project-img">
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Machine Learning</span>
+                        <h3>EVision — Intelligent EV Eligibility Analytics</h3>
+                        <p>Built an end-to-end ML pipeline on 150k+ EV registration records to predict Clean Alternative Fuel Vehicle (CAFV) eligibility. Leveraged geospatial data, manufacturer trends, and electric range features. Added SHAP explainability and achieved 99.41% accuracy using feature engineering, cross-validation, and Bayesian hyperparameter tuning.</p>
+                        <div class="project-tech">
+                            <span class="project-tech-tag">Python</span>
+                            <span class="project-tech-tag">XGBoost</span>
+                            <span class="project-tech-tag">Scikit-Learn</span>
+                            <span class="project-tech-tag">Pandas</span>
+                            <span class="project-tech-tag">LangChain</span>
+                        </div>
+                        <a href="https://github.com/rohittt21/EVision" class="project-link" target="_blank" rel="noopener noreferrer">
+                            View Project
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 2: CipherGuard AI -->
+                <article class="project-card reveal stagger-2" data-tilt>
+                    <div class="holo-shimmer"></div>
+                    <div class="project-preview">
+                        <img src="images/CipherGuard%20AI.png" alt="CipherGuard AI" class="project-img">
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Multi-Agent AI</span>
+                        <h3>CipherGuard AI</h3>
+                        <p>A Sovereign, air-gapped LLM platform built for modern financial institutions to correlate events across siloed security telemetry (EDR/NDR and Fraud teams). Uses a Multi-Agent AI architecture, a 5-dimension Risk Engine, and Explainable AI to detect complex kill chains (e.g. MFA bypass to wire transfer) with 100% data privacy.</p>
+                        <div class="project-tech">
+                            <span class="project-tech-tag">LLMs</span>
+                            <span class="project-tech-tag">Multi-Agent AI</span>
+                            <span class="project-tech-tag">Risk Engine</span>
+                            <span class="project-tech-tag">Explainable AI</span>
+                            <span class="project-tech-tag">Python</span>
+                        </div>
+                        <a href="https://github.com/rohittt21/Cipherguard-AI" class="project-link" target="_blank" rel="noopener noreferrer">
+                            View Project
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         PUBLICATION SECTION
+         ═══════════════════════════════════════ -->
+    <section class="section" id="publications">
+        <div class="container">
+            <div class="section-label reveal">
+                <span>Research</span>
+            </div>
+            <h2 class="section-title reveal stagger-1">
+                Published <span class="gradient-text">Research</span>
+            </h2>
+            <p class="section-subtitle reveal stagger-2">
+                Peer-reviewed work at the intersection of AI, genomics, and clinical decision-making.
+            </p>
+
+            <div class="projects-grid" style="margin-top: 3rem;">
+                <div class="project-card reveal stagger-1" data-tilt>
+                    <div class="holo-shimmer"></div>
+                    <div class="project-body">
+                        <span class="project-tag">ICONDEEPCOM 2026 · Jun 2026</span>
+                        <h3>Population-Stratified Variant Pathogenicity Prediction via Ancestry-Conditioned Ensemble Learning</h3>
+                        <p>Developed an ancestry-aware stacking ensemble using XGBoost, LightGBM, and CatBoost to classify genomic variants from a 71-feature dataset. Incorporated population-level ancestry signals and patient parameters, and generated SHAP-based clinical reports for interpretable clinical decision-making.</p>
+                        <p style="margin-top: 1rem; font-weight: 500; color: var(--aurora-cyan);">
+                            📚 Published in Communications in Computer and Information Science (CCIS), a Scopus-indexed Springer book series
+                        </p>
+                        <div class="project-tech">
+                            <span class="project-tech-tag">XGBoost</span>
+                            <span class="project-tech-tag">LightGBM</span>
+                            <span class="project-tech-tag">CatBoost</span>
+                            <span class="project-tech-tag">SHAP</span>
+                            <span class="project-tech-tag">Genomics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CONTACT SECTION
+         ═══════════════════════════════════════ -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-label reveal">
+                <span>Connect</span>
+            </div>
+            <h2 class="section-title reveal stagger-1">
+                Let's Build <span class="gradient-text">Something Great</span>
+            </h2>
+            <p class="section-subtitle reveal stagger-2">
+                Got an idea, a project, or just want to say hello? I'd love to hear from you.
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal-left stagger-3">
+                    <h3>Get in Touch</h3>
+                    <p>I'm always open to discussing AI/ML projects, research collaborations, or opportunities in data science and engineering.</p>
+
+                    <div class="contact-methods">
+                        <a href="mailto:rohitloharkar007@gmail.com" class="contact-method">
+                            <div class="contact-method-icon">✉️</div>
+                            <div class="contact-method-details">
+                                <div class="contact-method-label">Email</div>
+                                <div class="contact-method-value">rohitloharkar007@gmail.com</div>
+                            </div>
+                        </a>
+
+                        <div class="contact-method">
+                            <div class="contact-method-icon">📍</div>
+                            <div class="contact-method-details">
+                                <div class="contact-method-label">Location</div>
+                                <div class="contact-method-value">Pune, Maharashtra, India</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form reveal-right stagger-4" id="contact-form" action="mailto:rohitloharkar007@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label class="form-label" for="form-name">Your Name</label>
+                        <input type="text" id="form-name" class="form-input" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="form-email">Your Email</label>
+                        <input type="email" id="form-email" class="form-input" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="form-message">Message</label>
+                        <textarea id="form-message" class="form-textarea" placeholder="Tell me about your project or idea..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">
+                        <span class="btn-shimmer"></span>
+                        <span>Send Message →</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">Rohit Loharkar</div>
+
+                <p class="footer-copyright">© 2026 — Designed & crafted with innovation.</p>
+
+                <div class="footer-socials">
+                    <a href="https://github.com/rohittt21" class="social-icon" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/rohitloharkar" class="social-icon" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
